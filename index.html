@@ -10,7 +10,26 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pixel Vault</title>
+  <title>Pixel Vault — Free Unblocked Games</title>
+  <meta name="description" content="Play free unblocked games instantly — Bloons TD, Minecraft, Subway Surfers, Slope, Cookie Clicker, FNAF and more. No downloads needed." />
+  <meta name="keywords" content="unblocked games, free online games, pixel vault, games at school, bloons td, minecraft, subway surfers, slope game, cookie clicker" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (nice preview when shared on Discord, iMessage, etc.) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Pixel Vault — Free Unblocked Games" />
+  <meta property="og:description" content="Play free unblocked games instantly. No downloads. No sign-up." />
+
+  <!-- Structured data for Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Pixel Vault",
+    "description": "Free unblocked browser games — play instantly with no downloads."
+  }
+  </script>
+
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
 
@@ -226,6 +245,38 @@
       margin-left: 2px;
     }
 
+    /* ── badges ── */
+    .badges {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .badge-new {
+      background: #16a34a;
+      color: #d1fae5;
+      box-shadow: 0 0 10px rgba(22,163,74,0.5);
+    }
+
+    .badge-popular {
+      background: #b45309;
+      color: #fef3c7;
+      box-shadow: 0 0 10px rgba(180,83,9,0.5);
+    }
+
     /* ── loading pulse ── */
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -254,29 +305,29 @@
   </div>
 
   <script>
+    // ── To add/remove badges, change isNew or isPopular to true/false ──
     const games = [
-      { name: "Bloons TD",         img: "img/2.webp",              url: "baloonstd/baloonstd.html" },
-      { name: "BitLife",            img: "img/3.webp",              url: "bitlife/bitlife.html" },
-      { name: "Block Blast",        img: "img/4.webp",              url: "blockblast/blockblast.html" },
-      { name: "Cookie Clicker",     img: "img/6.webp",              url: "CookieClicker/cookieclicker.html" },
-      { name: "Coreball",           img: "img/7.webp",              url: "Coreball/coreball.html" },
-      { name: "Drive Mad",          img: "img/8.webp",              url: "DriveMad/drivemad.html" },
-      { name: "Paper.io 2",         img: "img/12.webp",             url: "paperio2/paper.html" },
-      { name: "PolyTrack",          img: "img/13.webp",             url: "polytrack.3-main/polytrack.html" },
-      { name: "Plants vs Zombies",  img: "img/15.webp",             url: "pvz/pvz.html" },
-      { name: "Retrobowl",          img: "img/17.webp",             url: "Retrobowl/retro.html" },
-      { name: "Slope",              img: "img/19.webp",             url: "slope/slope.html" },
-      { name: "Subway Surfers",     img: "img/21.webp",             url: "SubwaySurfers/subwaysurfers.html" },
-      { name: "Time Shooter",       img: "img/23.webp",             url: "TimeShooter/timeshooter.html" },
-      { name: "Monkey Mart",        img: "img/mm.jpg",              url: "MonkeyMart" },
-      { name: "Minecraft",          img: "img/minecraft.jpg",       url: "Minecraft.html" },
-      { name: "Eggy Car",           img: "img/eggycar.png",         url: "EggyCar" },
-      { name: "mk48.io",            img: "img/mk48.png",            url: "https://mk48.io",              external: true },
-      { name: "Basketball Stars",   img: "img/basketball-stars.png",url: "BasketballStarsUnblocked.github.io/index.html" },
-      { name: "Tag",                img: "img/tag.png",             url: "https://www.coolmathgames.com/0-tag-game/play", external: true },
-      { name: "FNAF",               img: "img/fnaf.png",            url: "https://ripped-offgames.github.io/fnaf/index.html", external: true },
-      { name: "Buckshot Roulette",  img: "img/backshot.png",        url: "https://ripped-offgames.github.io/buckshot/index.html", external: true },
-      { name: "Papa's Pizzeria",    img: "img/pizza.png",           url: "flash/pizza.html" },
+      { name: "Bloons TD",         img: "img/2.webp",               url: "baloonstd/baloonstd.html",                               isNew: false, isPopular: true  },
+      { name: "BitLife",            img: "img/3.webp",               url: "bitlife/bitlife.html",                                   isNew: false, isPopular: true  },
+      { name: "Block Blast",        img: "img/4.webp",               url: "blockblast/blockblast.html",                             isNew: false, isPopular: false },
+      { name: "Cookie Clicker",     img: "img/6.webp",               url: "CookieClicker/cookieclicker.html",                       isNew: false, isPopular: true  },
+      { name: "Coreball",           img: "img/7.webp",               url: "Coreball/coreball.html",                                 isNew: false, isPopular: false },
+      { name: "Drive Mad",          img: "img/8.webp",               url: "DriveMad/drivemad.html",                                 isNew: false, isPopular: false },
+      { name: "Paper.io 2",         img: "img/12.webp",              url: "paperio2/paper.html",                                    isNew: false, isPopular: false },
+      { name: "PolyTrack",          img: "img/13.webp",              url: "polytrack.3-main/polytrack.html",                        isNew: true,  isPopular: true  },
+      { name: "Plants vs Zombies",  img: "img/15.webp",              url: "pvz/pvz.html",                                           isNew: false, isPopular: true  },
+      { name: "Retrobowl",          img: "img/17.webp",              url: "Retrobowl/retro.html",                                   isNew: false, isPopular: false },
+      { name: "Slope",              img: "img/19.webp",              url: "slope/slope.html",                                       isNew: false, isPopular: true  },
+      { name: "Subway Surfers",     img: "img/21.webp",              url: "SubwaySurfers/subwaysurfers.html",                       isNew: false, isPopular: true  },
+      { name: "Time Shooter",       img: "img/23.webp",              url: "TimeShooter/timeshooter.html",                           isNew: false, isPopular: false },
+      { name: "Monkey Mart",        img: "img/mm.jpg",               url: "MonkeyMart",                                             isNew: false, isPopular: false },
+      { name: "Minecraft",          img: "img/minecraft.jpg",        url: "Minecraft.html",                                         isNew: false, isPopular: true  },
+      { name: "Eggy Car",           img: "img/eggycar.png",          url: "EggyCar",                                                isNew: true,  isPopular: false },
+      { name: "mk48.io",            img: "img/mk48.png",             url: "https://mk48.io",              external: true,           isNew: false, isPopular: false },
+      { name: "Basketball Stars",   img: "img/basketball-stars.png", url: "BasketballStarsUnblocked.github.io/index.html",          isNew: false, isPopular: false },
+      { name: "Tag",                img: "img/tag.png",              url: "https://www.coolmathgames.com/0-tag-game/play", external: true,  isNew: true,  isPopular: false },
+      { name: "FNAF",               img: "img/fnaf.png",             url: "https://ripped-offgames.github.io/fnaf/index.html", external: true, isNew: false, isPopular: true  },
+      { name: "Buckshot Roulette",  img: "img/backshot.png",         url: "https://ripped-offgames.github.io/buckshot/index.html", external: true, isNew: true, isPopular: true },
     ];
 
     function openGame(url) {
@@ -285,12 +336,19 @@
 
     const grid = document.getElementById("grid");
 
-    games.forEach(({ name, img, url }) => {
+    games.forEach(({ name, img, url, isNew, isPopular }) => {
+      const badgesHTML = (isNew || isPopular) ? `
+        <div class="badges">
+          ${isPopular ? '<span class="badge badge-popular">🔥 Popular</span>' : ''}
+          ${isNew     ? '<span class="badge badge-new">✨ New</span>' : ''}
+        </div>` : '';
+
       const card = document.createElement("div");
       card.className = "card";
       card.onclick = () => openGame(url);
       card.innerHTML = `
-        <img class="card-thumb" src="${img}" alt="${name}" loading="lazy" />
+        ${badgesHTML}
+        <img class="card-thumb" src="${img}" alt="${name} unblocked free online game" loading="lazy" />
         <div class="card-footer">
           <span class="card-name">${name}</span>
           <div class="play-icon">
